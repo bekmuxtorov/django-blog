@@ -1,0 +1,27 @@
+{% load static %}
+<ul class="blog-items">
+            
+    {% for article in object_list %}
+    <li class="articel-item blog-item">
+        <a href=" {% url 'article_detail' pk=article.pk %} ">
+            <div class="articel-img">
+                {% if article.image %}
+                <img src="{{ article.image.url }}" alt="">
+                {% else %}
+                <img src="{% static 'images/rasm10.jpg' %}" alt="">
+                {% endif %}
+            </div>
+            <div class="articel-content">
+                <p class="bg-author">
+                    Muallif: Asadbek Muxtorov || Farg'ona
+                </p>
+                <p class="bg-title"> {{ article.title }} </p>
+                <p class="bg-date">
+                    {{ article.date }}
+                </p>
+            </div>
+        </a>
+    </li>
+    
+    {% endfor %}
+</ul>

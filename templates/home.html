@@ -1,17 +1,61 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
-<link rel="stylesheet" href=" {% static 'css/main.css' %} ">
+
+{% block title %}Blog site || Asadbek Muxtorov{% endblock title %}
+
 
 {% block content %}
-    {% for post in object_list %}
-    <li class="blog-item">
-        <div class="blog-title">
-            <h2> <a href=" {% url 'post_detail' post.pk %} ">{{post.title}} </a></h2>
-            <span class="date"> {{post.author.title}} </span>
+<!-- blog items -->
+<div class="container">
+    <div class="blogs">
+        <div class="section-title">
+            <h1 >
+                Maqolalar
+            </h1>
+            <p>
+                Read updates on Upwork’s products, corporate initiatives, and partnerships to get insight into the world’s work marketplace.
+            </p>
         </div>
-        <div class="blog-description">
-            {{post.body | slice:":97"}}...
+        
+        <div class="help-bg">
+            <a href="#" class="bg-link">
+                <div class="article-bg">
+                    <div class="bg-img">
+                        <img src="static/images/main-hire_8v2CIPm.jpg" alt="title">
+                    </div>
+                    
+                    <div class="blog-content">
+                        <p class="bg-author">
+                            Muallif: Asadbek Muxtorov
+                        </p>
+                        <p class="bg-title">How Our Customers Drive Innovation at Upwork</p>
+                        <p class="bg-date">
+                            Avgust 9, 2022
+                        </p>
+                    </div>
+                </div>
+            </a>
+            
+            
+            <div class="articel-item">
+                <a href="#">
+                    <div class="articel-img">
+                        <img src="static/images/main-hire_8v2CIPm.jpg" alt="">
+                    </div>
+                    <div class="articel-content">
+                        <p class="bg-author">
+                            Muallif: Asadbek Muxtorov || Farg'ona
+                        </p>
+                        <p class="bg-title">How Our Customers Drive Innovation at Upwork</p>
+                        <p class="bg-date">
+                            Avgust 9, 2022
+                        </p>
+                    </div>
+                </a>
+            </div>
         </div>
-    </li>
-    {% endfor %}
-{% endblock content %} 
+        
+        {% include "include_home.html" %}
+    </div>
+</div>
+{% endblock content %}

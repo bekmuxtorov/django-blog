@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Maqola || O'chirish
+{% endblock title %}
+
+{% block content %}
+<h3>Maqola o'chirish</h3>
+<form action="" method="post">
+    
+    <p>Haqiqatdan ham {{ object.title }} maqolasini o'chirmoqchimisz?</p>
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class="btn btn-danger" value="Ha">
+    
+</form>
+{% endblock content %}

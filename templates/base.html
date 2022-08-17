@@ -1,49 +1,178 @@
 <!DOCTYPE html>
 {% load static %}
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    
+    <!-- CSS link -->
+    <link rel="stylesheet" href=" {% static 'css/main.css' %} ">
+    <link rel="stylesheet" href=" {% block link %} {% endblock link %}"
+    
+    <!-- Fontawesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        @font-face {
+            font-family: 'Neuemontreal';
+            src: url(./fonts/PPNeueMontreal-Medium.otf);
+        }
+    </style>
+    
     <title>
-        Blog.uz | Asadbek Muxtorov
+        {% block title %}
+        
+        {% endblock title %}
     </title>
-    <link rel="stylesheet" href="{% static 'css/main.css'%}">
 </head>
 <body>
+    <header>
+        <div class="container-lg">
+            <div class="header-nav nav-1">
+                
+                <ul class="nav-items">
+                    <div class="nav-logo">
+                        <a href="home.html">
+                            Blog
+                        </a>    
+                    </div>
+                    <li class="nav-item">
+                        <a href="#">
+                            Bosh sahifa
+                        </a>
+                    </li>
+
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href=" {% url 'edit_profile' %} ">
+                            Ma'lumotlarim
+                        </a> 
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="{% url 'my_articles' %}">
+                            Postlarim
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href=" {% url 'article_new' %} ">
+                            Post qo'shish
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+                
+                <div class="header-dropmenu">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" class="signup-button ">Chiqish</a>
+                    {% else %}
+                    <a href=" {% url 'login' %} " class="login-button">Kirish</a>
+                    <a href="{% url 'signup' %}" class="signup-button ">Ro'yhatdan o'tish</a>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <nav class="navbar bg-light fixed-top nav-2">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Blog</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Blog</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Bosh sahifa</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Ma'lumotlarim</a>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">Postlarim</a>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">Post qo'shish</a>
+                                </li>
+                            </ul>
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+            <div class="container control-area">
+                <div class="dropdown">
+                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Hududlar
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Andijon viloyati</a></li>
+                        <li><a class="dropdown-item" href="#">Farg'ona viloyati</a></li>
+                        <li><a class="dropdown-item" href="#">Namangan viloyati</a></li>
+                        <li><a class="dropdown-item" href="#">Samarqand viloyati</a></li>
+                        <li><a class="dropdown-item" href="#">Buxoro viloyati</a></li>
+                        <li><a class="dropdown-item" href="#">Sirdaryo viloyati</a></li>
+                        <li><a class="dropdown-item" href="#">Qashqadaryo viloyati</a></li>
+                        <li><a class="dropdown-item" href="#">Surxondaryo viloyati</a></li>
+                        <li><a class="dropdown-item" href="#">Toshkent viloyati</a></li>
+                    </ul>
+                </div>
+                
+                <div class="dropdown">
+                    <button class="btn  dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Kategoriyalar
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Uzbekiston</a></li>
+                        <li><a class="dropdown-item" href="#">Sport</a></li>
+                        <li><a class="dropdown-item" href="#">Texnalogiya</a></li>
+                        <li><a class="dropdown-item" href="#">Ilm-fan</a></li>
+                        <li><a class="dropdown-item" href="#">San'at</a></li>
+                        <li><a class="dropdown-item" href="#">Boshqa mavzu</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
     
-    <div class="container">
-        <div class="header">
-            <h1 class="title"> <a href="{% url 'home' %} ">Blog || Muxtorov</a> </h1>
-        </div>
-        <div class="sub-title">
-            {% if user.is_authenticated %}
-            <p>Xush kelibsiz {{user.username.title}} </p>
-            <p>
-                <a href=" {% url 'logout' %} ">Chiqib</a>
-            </p>
-            {% else %}
-            <p> <a href="{% url 'login' %} ">Saytga kiring</a> </p>
-            <p>
-                <a href=" {% url 'signup' %} ">Ro'yhatdan o'tish</a>
-            </p>
-            {% endif %}
-            
-            
-        </div>
-        <ul class="blog-items">
-            {% block content %}
-            
-            {% endblock content %}
-        </ul>
-        
-        <footer>
-            <h3>
-                {% if user.is_authenticated %}
-                    <a href=" {% url 'post_new' %} ">
-                        +Yangi post qo'shish
-                    </a> 
-                {% endif %}
-            </h3>
-        </footer>
+    <div class="content">
+        {% block content %}
+
+        {% endblock content %}
     </div>
     
+    <footer>
+        <div class="container">
+            <div class="footer-area">
+                <p>
+                    © 2022 Maqolalar® || Asadbek Muxtorov
+                </p>
+            </div>
+            
+        </div>
+    </footer>
+
+    <!-- Bootstrap Js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    
+    <!--  -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
+

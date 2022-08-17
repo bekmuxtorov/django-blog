@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Mening maqolalarim
+{% endblock title %}
+
+
+{% block content %}
+
+{% for skill in skills %}
+<li class="articel-item blog-item">
+    <a href=" {% url 'article_detail' pk=skill.pk %} ">
+        <div class="articel-img">
+            {% if skill.image %}
+            <img src="{{ skill.image.url }}" alt="">
+            {% else %}
+            <img src="{% static 'images/rasm10.jpg' %}" alt="">
+            {% endif %}
+        </div>
+        <div class="articel-content">
+            <p class="bg-author">
+                Muallif: Asadbek Muxtorov || Farg'ona
+            </p>
+            <p class="bg-title"> {{ skill.title }} </p>
+            <p class="bg-date">
+                {{ skill.date }}
+            </p>
+        </div>
+    </a>
+</li>
+{% endblock content %}

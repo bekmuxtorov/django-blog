@@ -1,0 +1,33 @@
+{% load static %}
+<div class="might-like">
+    <div class="title">
+        <h2>
+            Sizga yoqishi mumkin
+        </h2>
+    </div>
+    <ul class="blog-items">
+        {% for articles in object_list %}
+          
+        
+        <li class="articel-item blog-item">
+            <a href="#">
+                <div class="articel-img">
+                    <img src="{{ article.image.url }}" alt="">
+                </div>
+                <div class="articel-content">
+                    <p class="bg-author">
+                        Muallif: Asadbek Muxtorov || Farg'ona
+                    </p>
+                    <p class="bg-title">{{ article.title }}</p>
+                    <p class="bg-date">
+                        {{ article.date }}
+                    </p>
+                </div>
+            </a>
+        </li>
+
+        {% endfor %}
+    </ul>
+</div>
+
+

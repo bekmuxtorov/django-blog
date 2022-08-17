@@ -1,4 +1,3 @@
-import profile
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 
@@ -24,7 +23,7 @@ def BlogEditUserView(request):
         
         if form.is_valid():
             form.save()
-            return redirect(profile)
+            return redirect('home')
         else:
             error = "Forma to'ldirishda xatolik!"
 
@@ -37,4 +36,5 @@ def BlogEditUserView(request):
     }
 
     return render(request, 'edit_profile.html', context)
+
 

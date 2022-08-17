@@ -36,12 +36,12 @@
                 
                 <ul class="nav-items">
                     <div class="nav-logo">
-                        <a href="home.html">
+                        <a href="{% url 'home' %}">
                             Blog
                         </a>    
                     </div>
                     <li class="nav-item">
-                        <a href="#">
+                        <a href="{% url 'home' %}">
                             Bosh sahifa
                         </a>
                     </li>
@@ -79,7 +79,7 @@
             
             <nav class="navbar bg-light fixed-top nav-2">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Blog</a>
+                    <a class="navbar-brand" href="{% url 'home' %}">Blog</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -91,18 +91,18 @@
                         <div class="offcanvas-body">
                             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">Bosh sahifa</a>
+                                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Bosh sahifa</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Ma'lumotlarim</a>
-                                </li>
-                                
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">Postlarim</a>
+                                    <a class="nav-link" href="{% url 'edit_profile' %}">Ma'lumotlarim</a>
                                 </li>
                                 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Post qo'shish</a>
+                                    <a href="#" class="{% url 'my_articles' %}">Postlarim</a>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a href="{% url 'article_new' %}" class="nav-link">Post qo'shish</a>
                                 </li>
                             </ul>
                             <form class="d-flex" role="search">
@@ -114,38 +114,7 @@
                 </div>
             </nav>
             
-            <div class="container control-area">
-                <div class="dropdown">
-                    <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Hududlar
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Andijon viloyati</a></li>
-                        <li><a class="dropdown-item" href="#">Farg'ona viloyati</a></li>
-                        <li><a class="dropdown-item" href="#">Namangan viloyati</a></li>
-                        <li><a class="dropdown-item" href="#">Samarqand viloyati</a></li>
-                        <li><a class="dropdown-item" href="#">Buxoro viloyati</a></li>
-                        <li><a class="dropdown-item" href="#">Sirdaryo viloyati</a></li>
-                        <li><a class="dropdown-item" href="#">Qashqadaryo viloyati</a></li>
-                        <li><a class="dropdown-item" href="#">Surxondaryo viloyati</a></li>
-                        <li><a class="dropdown-item" href="#">Toshkent viloyati</a></li>
-                    </ul>
-                </div>
-                
-                <div class="dropdown">
-                    <button class="btn  dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Kategoriyalar
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Uzbekiston</a></li>
-                        <li><a class="dropdown-item" href="#">Sport</a></li>
-                        <li><a class="dropdown-item" href="#">Texnalogiya</a></li>
-                        <li><a class="dropdown-item" href="#">Ilm-fan</a></li>
-                        <li><a class="dropdown-item" href="#">San'at</a></li>
-                        <li><a class="dropdown-item" href="#">Boshqa mavzu</a></li>
-                    </ul>
-                </div>
-            </div>
+            
         </div>
     </header>
     

@@ -28,3 +28,4 @@ class CustomUser(AbstractUser):
 
     def get_region(self):
         return dict(CustomUser.regions)[self.region]
+

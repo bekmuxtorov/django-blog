@@ -1,31 +1,44 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
-  Mening maqolalarim
+Mening maqolalarim
 {% endblock title %}
+
+{% block link %}{% static 'css/forms.css' %}
+  
+{% endblock link %}
 
 
 {% block content %}
+<div class="container">
+    <div class="section-title">
+        <h1>
+            Mening maqolalarim
+        </h1>
+    </div>
+    <ul class="blog-items">
+        {% for skill in skills %}
+        
+        <li class="articel-item blog-item">
+            <a href=" {% url 'article_detail' pk=skill.pk %} ">
+                <div class="articel-img">
+                    <img src="{{ skill.image.url }}" alt="">
+                </div>
+                <div class="articel-content">
+                    <p class="bg-author">
+                        {{ user.username |title }}
+                    </p>
+                    <p class="bg-title"> {{ skill.title }} </p>
+                    <p class="bg-date">
+                        {{ skill.date }}
+                    </p>
+                </div>
+            </a>
+        </li>
+        
+        {% endfor %}
+    </ul>
+</div>
 
-{% for skill in skills %}
-<li class="articel-item blog-item">
-    <a href=" {% url 'article_detail' pk=skill.pk %} ">
-        <div class="articel-img">
-            {% if skill.image %}
-            <img src="{{ skill.image.url }}" alt="">
-            {% else %}
-            <img src="{% static 'images/rasm10.jpg' %}" alt="">
-            {% endif %}
-        </div>
-        <div class="articel-content">
-            <p class="bg-author">
-                Muallif: Asadbek Muxtorov || Farg'ona
-            </p>
-            <p class="bg-title"> {{ skill.title }} </p>
-            <p class="bg-date">
-                {{ skill.date }}
-            </p>
-        </div>
-    </a>
-</li>
 {% endblock content %}

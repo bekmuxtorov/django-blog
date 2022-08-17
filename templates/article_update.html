@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block title %}
 Tahrirlash
 {% endblock title %}
+
+{% block link %}{% static "css/forms.css" %}
+  
+{% endblock link %}
 
 {% block content %}
 <div class="container">

@@ -1,18 +1,48 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block title %}
 Edit profile
 {% endblock title %}
 
+{% block link %} {% static 'css/edit_profile.css' %}{% endblock link %}
+
 {% block content %}
-    <div style="width: 80%; margin: auto;">
-        <h1 class="text-center">Shaxsiy ma'lumotlar</h1>
-        {{ error }}
-        <form method="post">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <input class="float-end btn btn-success mt-3" type="submit" value="Tahrirlash">
-        </form>
-    </div>
+<div style="width: 80%; margin: auto;">
+    <h1 class="text-center">Shaxsiy ma'lumotlar</h1>
+    <!-- {{ error }} -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <a class="data-a" href="{% url 'password_change' %}">Parolni almashtirish</a>
+        <input class="center btn btn-success mt-3 button" type="submit" value="Tahrirlash">
+    </form>
+    
+    <!-- <form action="" method="post">
+        {% csrf_token %}
+        <label for="username">Username: </label>
+        <input type="text" id="id_username" name="username" value="{{ user.username }}" required autocomplete="on">
+        <br>
+        <label for="first_name">Foydalanuvchi ismi: </label>
+        <input type="text" id="id_first_name" name="first_name" value="{{ user.first_name }}" required autocomplete="on">
+        <br>
+        <label for="last_name">Foydalanuvchi familiyasi: </label>
+        <input type="text" id="id_last_name" name="last_name" value="{{ user.last_name }}" required autocomplete="on">
+        <br>
+        <label for="email">Foydalanuvchi email manzili: </label>
+        <input type="email" id="id_email" name="email" value="{{ user.email }}" required autocomplete="on">
+        <br>
+        <label for="password">Foydalanuvchi paroli: </label>
+        <input type="password" id="id_password" name="password" value="{{ user.password }}" required autocomplete="on">
+        <br>
+        <label for="region">Foydalanuvchi hududi: </label>
+        <input type="region" id="id_region" name="region" value="{{ user.region }}" required autocomplete="on">
+        
+    
+        <input class="float-end btn btn-success mt-3" type="submit" value="Tahrirlash"> 
+        
+        
+    </form> -->
+</div>
 {% endblock content %}

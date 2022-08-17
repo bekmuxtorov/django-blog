@@ -1,6 +1,18 @@
+{% extends "base.html" %}
 {% load static %}
-<ul class="blog-items">
-            
+
+{% block title %}Hududlar bo'yicha{% endblock title %}
+
+{% block link %}{% static 'css/forms.css' %}{% endblock link %}
+
+
+{% block content %}
+<div class="container">
+    <div class="section-title">
+        <h1 class="">{{ region }}</h1>
+    </div>
+
+   <ul class="blog-items">
     {% for article in object_list %}
     <li class="articel-item blog-item">
         <a href=" {% url 'article_detail' pk=article.pk %} ">
@@ -13,15 +25,16 @@
             </div>
             <div class="articel-content">
                 <p class="bg-author">
-                    {{ article.author.first_name | title}} {{ article.author.last_name | title}}
+                    {{ object.author |title }}
                 </p>
                 <p class="bg-title"> {{ article.title }} </p>
                 <p class="bg-date">
-                    {{ article.get_date }}
+                    {{ article.date }}
                 </p>
             </div>
         </a>
     </li>
-    
     {% endfor %}
-</ul>
+   </ul>
+</div>
+{% endblock content %}

@@ -6,6 +6,33 @@
 
 {% block content %}
 <!-- blog items -->
+<div class="container control-area">
+    <div class="dropdown">
+        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hududlar
+        </button>
+        <ul class="dropdown-menu">
+            {% for key, value in regions.items %}
+                <li>
+                    <a class="dropdown-item" href="{% url 'regions' key %}">{{ value }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <div class="dropdown">
+        <button class="btn  dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Kategoriyalar
+        </button>
+        <ul class="dropdown-menu">
+            {% for key, value  in categories.items %}
+              <li>
+                <a class="dropdown-item" href="{% url 'categories' key %}">{{value}}</a>
+              </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 <div class="container">
     <div class="blogs">
         <div class="section-title">

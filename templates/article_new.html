@@ -1,13 +1,25 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+  Yangi maqola yozish
+{% endblock title %}
+
+{% block link %}{% static 'css/forms.css' %}
+  
+{% endblock link %}
 
 
 {% block content %}
     <div class="container">
+        <div class="section-title">
+            <h1 >Yangi post qo'shish</h1>
+        </div>
         <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form | crispy }}
-            <input class="btn btn-primary" type="submit" value='Saqlash'>
+            <input class="btn btn-primary mt-2" type="submit" value='Saqlash'>
         </form>
     </div>
 {% endblock content %}

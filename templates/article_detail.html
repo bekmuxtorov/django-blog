@@ -15,8 +15,20 @@
             <h1>
                 {{ object.title | title }}
             </h1>
-            <p class="bg-author dark-text"> {{ object.author }} </p>
-            <p class="bg-date">{{ object.date }}</p>
+            
+            <div class="data">
+                <div>
+                    <p class="bg-author dark-text">{{ object.author.first_name | title}} {{ object.author.last_name | title}}</p>
+                    <p class="bg-date">{{ object.get_date }}</p>
+                </div>
+                
+                <div>
+                    
+                    <p class="bg-date">Categoriya: {{ object.get_category }}</p>
+                    <p class="bg-date">Hudud: {{ object.get_region }}</p>
+                </div>
+            </div>
+            
         </div>
         
         <div class="detail-content">
@@ -37,17 +49,19 @@
                     <div class="blog-word">
                         <p>
                             {{ object.body }}
-
+                            
                         </p>
-
+                        
                         <p>Ko'rishlar soni: {{ object.blog_view }}</p>
                     </div>
                 </div>
-
+                
+                {% if user == object.author %}
                 <div class="control">
                     <a href="{% url 'article_update' object.pk %}" class="btn btn-primary">Tahrirlash</a> || 
                     <a href="{% url 'article_delete' object.pk %}" class="btn btn-primary" >O'chirish</a>
                 </div>
+                {% endif %}
             </div>
             
             <div class="detail-share">
@@ -75,7 +89,41 @@
             </div>
         </div>
         
-        {% include "include_home.html" %}
+        
+        <div class="might-like">
+            <div class="title">
+                <h2>
+                    Sizga yoqishi mumkin
+                </h2>
+            </div>
+            
+            
+            <ul class="blog-items">
+                {% for key,value in articles.items %}
+                <li class="articel-item blog-item">
+                    <a href=" {% url 'article_detail' pk=article.pk %} ">
+                        <div class="articel-img">
+                            {% if key.value.image %}
+                            <img src="{{ key.value.image.url }}" alt="">
+                            {% else %}
+                            <img src="{% static 'images/rasm10.jpg' %}" alt="">
+                            {% endif %}
+                        </div>
+                        <div class="articel-content">
+                            <p class="bg-author">
+                                Muallif: Asadbek Muxtorov || Farg'ona
+                            </p>
+                            <p class="bg-title"> {{ key.value.title }} </p>
+                            <p class="bg-date">
+                                {{ key.value.date }}
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                
+                {% endfor %}
+            </ul>
+        </div>
         
         
         

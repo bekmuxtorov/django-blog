@@ -1,0 +1,32 @@
+.section-title{
+    text-align: center;
+}
+form{
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+form > div{
+    margin-bottom: 25px;
+}
+
+.button{
+    width: 100% !important;
+}
+
+form small{
+    display: none;
+}
+form label{
+    font-family: sans-serif;
+    font-weight: 500;
+    margin-right: auto;
+}
+
+
+form a{
+    display: block;
+    text-align: right;
+    font-size: 18px;
+}

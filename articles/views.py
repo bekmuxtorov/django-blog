@@ -29,7 +29,7 @@ class ArticlesDetailView(DetailView):
 
     def get_context_date(self, **kwargs):
         context = super(ArticlesDetailView,self).get_context_data(**kwargs)
-        context['articles'] = dict(Articles.objects.all)
+        context['articles'] = Articles.objects.all()
         return context
 
     def get_object(self):
@@ -38,7 +38,7 @@ class ArticlesDetailView(DetailView):
         obj.save()
         return obj
 
-class ArticleCreateView(UserPassesTestMixin,LoginRequiredMixin,CreateView):
+class ArticleCreateView(LoginRequiredMixin,CreateView):
     model = Articles
     template_name = 'article_new.html'
     fields = ['title', 'body','image', 'region', 'category' ]

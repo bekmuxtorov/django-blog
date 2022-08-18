@@ -1,0 +1,38 @@
+form{
+    width: 50%;
+    margin: 0 auto;
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+form > div{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button{
+    width: 100% !important;
+}
+
+form small{
+    display: none;
+}
+form label{
+    font-family: sans-serif;
+    font-weight: 500;
+    margin-right: auto;
+}
+
+#div_id_password{
+    display: none;
+}
+
+form a{
+    display: block;
+    text-align: right;
+    font-size: 18px;
+}
+

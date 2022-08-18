@@ -99,12 +99,12 @@
             
             
             <ul class="blog-items">
-                {% for key,value in articles.items %}
+                {% for article in articles.values %}
                 <li class="articel-item blog-item">
                     <a href=" {% url 'article_detail' pk=article.pk %} ">
                         <div class="articel-img">
-                            {% if key.value.image %}
-                            <img src="{{ key.value.image.url }}" alt="">
+                            {% if article.image %}
+                            <img src="{{ article.image.url }}" alt="">
                             {% else %}
                             <img src="{% static 'images/rasm10.jpg' %}" alt="">
                             {% endif %}
@@ -113,9 +113,9 @@
                             <p class="bg-author">
                                 Muallif: Asadbek Muxtorov || Farg'ona
                             </p>
-                            <p class="bg-title"> {{ key.value.title }} </p>
+                            <p class="bg-title"> {{ article.title }} </p>
                             <p class="bg-date">
-                                {{ key.value.date }}
+                                {{ article.get_date }}
                             </p>
                         </div>
                     </a>

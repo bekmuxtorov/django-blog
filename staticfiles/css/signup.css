@@ -34,3 +34,19 @@ button{
 footer{
     position: relative !important;
 }
+
+.footer-area p{
+    margin: 0;
+}
+
+@media only screen and (max-width: 992px){
+    .name{
+        flex-direction: column;
+    }
+
+    .name input{
+        width: 100%;
+    }
+
+
+}

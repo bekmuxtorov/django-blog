@@ -123,7 +123,7 @@ button{
 }
 .control-area{
     display: flex;
-    padding: 0;
+    padding-left: 10px;
 }
 
 .dropdown:not(:last-child){
@@ -280,6 +280,10 @@ button{
     align-items: stretch !important;
 }
 
+.help-bg .bg-title{
+    font-size: 20px !important;
+}
+
 
 /* article-itam */
 .articel-item a{
@@ -336,6 +340,14 @@ footer{
 }
 
 @media only screen and (max-width: 992px) {
+
+
+    .nav-2 .navbar-toggler {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+
+    }
+
     .nav-1{
         display: none;
     }
@@ -343,6 +355,73 @@ footer{
     .nav-2{
         display: block !important;
     }
+
+    .help-bg{
+        flex-direction: column;
+    }
+
+    .article-bg{
+        width: 100%;
+    }
+
+    .help-bg .articel-item{
+        display: none;
+    }
+    
+    .blog-item{
+        width: 48%;
+    }
+
+    .signup-button{
+        padding: 12px 12px;
+    }
+    
+}
+
+@media only screen and (max-width: 576px) {
+    .content{
+        padding-top: 50px;
+    }
+
+    .blog-items{
+        flex-direction: column;
+    }
+
+    .blog-item{
+        width: 100%;
+        background-color: #f2f7f2;
+        border-radius: 10px;
+    }
+
+    .articel-content{
+        padding-left: 10px;
+    }
+
+    .control-area{
+        padding-left: 10px;
+    }
+
+    .article-bg{
+        flex-direction: column;
+    }
+
+    .signup-button{
+        padding: 8px 8px;
+    }
     
     
+
+    .bg-img{
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    .bg-img img{
+        width: 100%;
+    }
+
+    .section-title h1{
+        font-size: 40px;
+    }
+
 }

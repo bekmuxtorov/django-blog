@@ -38,3 +38,4 @@ def BlogEditUserView(request):
     return render(request, 'edit_profile.html', context)
 
 
+

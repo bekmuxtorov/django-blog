@@ -30,3 +30,12 @@ form a{
     text-align: right;
     font-size: 18px;
 }
+
+@media only screen and (max-width: 576px) {
+    .section-title{
+        padding: 0;
+    }
+form{
+    padding: 0;
+}
+}

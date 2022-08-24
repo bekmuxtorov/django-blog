@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 {% load static %}
+{% block extrahead %}
+    <script>
+        window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';
+    </script>
+    {{  block.super }}
+{% endblock %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -78,11 +84,20 @@
             </div>
             
             <nav class="navbar bg-light fixed-top nav-2">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="{% url 'home' %}">Blog</a>
+                <div class="container">
+
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+                    <div class="header-dropmenu">
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}" class="signup-button ">Chiqish</a>
+                        {% else %}
+                        <a href=" {% url 'login' %} " class="login-button">Kirish</a>
+                        <a href="{% url 'signup' %}" class="signup-button ">Ro'yhatdan o'tish</a>
+                        {% endif %}
+                    </div>
+                   
                     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                         <div class="offcanvas-header">
                             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Blog</h5>
@@ -93,18 +108,22 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Bosh sahifa</a>
                                 </li>
+                                {% if user.is_authenticated %}
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'edit_profile' %}">Ma'lumotlarim</a>
                                 </li>
                                 
                                 <li class="nav-item">
-                                    <a href="#" class="{% url 'my_articles' %}">Postlarim</a>
+                                    <a href="{% url 'my_articles' %}" class="nav-link">Postlarim</a>
                                 </li>
                                 
                                 <li class="nav-item">
                                     <a href="{% url 'article_new' %}" class="nav-link">Post qo'shish</a>
                                 </li>
+                                {% endif %}
                             </ul>
+
+                            
                             <form class="d-flex" role="search">
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success" type="submit">Search</button>

@@ -54,13 +54,15 @@
 .blog-word{
     margin-top: 25px;
     width: 100%;
+    margin-bottom: 25px;
+
 }
 
 .blog-word p {
-    margin-bottom: 25px;
-    font-size: 16px;
-    line-height: 22px;
-    letter-spacing: .4px;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: .6px;
+
 }
 
 /* detail content */
@@ -140,4 +142,47 @@
     line-height: 39px;
     font-weight: 400;
     letter-spacing: -.032em;
+}
+
+
+@media only screen and (max-width: 992px){
+    .detail-content{
+        flex-direction: column;
+    }
+
+    .detail-content > div {
+        width: 100%;
+        margin-bottom: 100px;
+    }
+
+    .section-title{
+        padding-top: 100px !important;
+        width: 100% !important;
+     }
+
+     .detail-share{
+        margin-bottom: 80px;
+     }
+
+     .share-items{
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+     }
+
+     .share-item:not(:last-child){
+        margin-right: 30px;
+     }
+
+     .control{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+     }
+
+     .control a:not(:last-child){
+        margin-right: 20px;
+     }
+
+
 }

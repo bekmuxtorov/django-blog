@@ -36,3 +36,12 @@ form a{
     font-size: 18px;
 }
 
+.edit{
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+

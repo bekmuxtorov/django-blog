@@ -25,6 +25,7 @@ header{
 }
 
 .login-area{
+    width: 45%;
     margin: 0 auto;
     display:inline-block;
     border: 1px solid #ccc;
@@ -34,6 +35,11 @@ header{
     padding-bottom: 40px;
     text-align: center;
     border-radius: 10px;
+    margin-bottom: 20px !important;
+}
+
+.login-area input{
+    width: 100%;
 }
 
 form{
@@ -151,5 +157,23 @@ footer{
 .footer-area p{
     font-size: 16px;
     font-family: 'Neuemontreal', sans-serif;
+    margin: 0;
+}
 
+.alert p
+{
+    margin: 0;
+}
+@media only screen and (max-width:992px ) {
+
+    .login-area{
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 775px ) {
+    .login-area{
+        width: 90%;
+        padding: 20px;
+    }
 }

@@ -48,7 +48,7 @@
                     
                     <div class="blog-word">
                         <p>
-                            {{ object.body }}
+                            {{ object.body | safe}}
                             
                         </p>
                         
@@ -58,7 +58,7 @@
                 
                 {% if user == object.author %}
                 <div class="control">
-                    <a href="{% url 'article_update' object.pk %}" class="btn btn-primary">Tahrirlash</a> || 
+                    <a href="{% url 'article_update' object.pk %}" class="btn btn-primary">Tahrirlash</a>
                     <a href="{% url 'article_delete' object.pk %}" class="btn btn-primary" >O'chirish</a>
                 </div>
                 {% endif %}
@@ -68,19 +68,19 @@
                 <p>Share</p>
                 <ul class="share-items">
                     <li class="share-item">
-                        <a href="#">
+                        <a href="https://t.me/Asadbek_Muxtorov">
                             <i class="fa-brands fa-telegram"></i>
                         </a>
                     </li>
                     
                     <li class="share-item">
-                        <a href="#">
+                        <a href="https://instagram.com/muxtorov4101">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
                     </li>
                     
                     <li class="share-item">
-                        <a href="#">
+                        <a href="www.linkedin.com/in/bekmuxtorov">
                             <i class="fa-brands fa-linkedin"></i> 
                         </a>
                     </li>

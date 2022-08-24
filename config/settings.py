@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from pickle import TRUE
 from environs import Env
 
 env = Env()
@@ -44,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #
     'crispy_forms',
+    'ckeditor',
+    'ckeditor_uploader',
 
     # apps
     'articles',
@@ -157,3 +160,18 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 JS_REVERSE_JS_MINIFY = False
+
+# CKEDITOR SETTINGS
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_RESTRICK_BY_USER = True

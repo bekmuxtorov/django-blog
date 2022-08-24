@@ -1,8 +1,10 @@
+from tabnanny import verbose
 from django.db import models
 from django.urls import reverse
 from .const import Const 
 from django.contrib.auth import get_user_model
 from datetime import datetime
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 class Articles(models.Model):
@@ -31,7 +33,7 @@ class Articles(models.Model):
     
 
     date = models.DateTimeField(auto_now_add=True)
-    body = models.TextField(verbose_name='Maqola matni')
+    body = RichTextField(verbose_name="Maqola matni:")
 
     #fields you need
     blog_view = models.IntegerField(default=0)
@@ -50,7 +52,7 @@ class Articles(models.Model):
 
     def get_date(self):
         now = self.date
-        date_time = now.strftime("%H:%M, %m/%d/%Y")
+        date_time = now.strftime("%d/%m/%Y")
         return date_time
 
    

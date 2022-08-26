@@ -1,4 +1,4 @@
-from pyexpat import model
+from django.db.models import Q
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, DeleteView, TemplateView
 from django.views.generic.edit import CreateView, UpdateView # new
@@ -104,3 +104,13 @@ def ArticleCategoryListView(request, pk):
 
     return render(request, 'category_filter.html', context)
 
+class SearchResultsListView(ListView):
+    model = Articles
+    context_object_name = 'article_list'
+    template_name = 'search_results.html'
+    #queryset = Articles.objects.filter(title__icontains='Uchun')
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        return Articles.objects.filter(
+            Q(title__icontains=query) | Q(title__icontains=query)
+        )
